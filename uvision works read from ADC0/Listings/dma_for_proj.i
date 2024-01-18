@@ -5,12 +5,6 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "CustomLibs/src/DMA_for_proj.c" 2
-# 1 "./CustomLibs/inc\\DMA_for_proj.h" 1
-
-
-
-void SetupDMA();
-# 2 "CustomLibs/src/DMA_for_proj.c" 2
 # 1 "./SPL/MDR32Fx/inc\\MDR32F9Qx_dma.h" 1
 # 32 "./SPL/MDR32Fx/inc\\MDR32F9Qx_dma.h"
 # 1 "./SPL/MDR32Fx\\MDR32F9Qx_config.h" 1
@@ -1483,7 +1477,7 @@ void DMA_ClearError(void);
 uint32_t DMA_GetCurrTransferCounter(uint8_t DMA_Channel, DMA_Data_Struct_Selection DMA_CtrlData);
 
 FlagStatus DMA_GetFlagStatus(uint8_t DMA_Channel, DMA_Flags DMA_Flag);
-# 3 "CustomLibs/src/DMA_for_proj.c" 2
+# 2 "CustomLibs/src/DMA_for_proj.c" 2
 # 1 "./SPL/MDR32Fx/inc\\MDR32F9Qx_rst_clk.h" 1
 # 49 "./SPL/MDR32Fx/inc\\MDR32F9Qx_rst_clk.h"
 typedef struct
@@ -1731,8 +1725,16 @@ void RST_CLK_PCLKcmd(uint32_t RST_CLK_PCLK, FunctionalState NewState);
 void RST_CLK_GetClocksFreq(RST_CLK_FreqTypeDef* RST_CLK_Clocks);
 
 FlagStatus RST_CLK_GetFlagStatus(RST_CLK_Flags RST_CLK_FLAG);
-# 4 "CustomLibs/src/DMA_for_proj.c" 2
+# 3 "CustomLibs/src/DMA_for_proj.c" 2
 # 1 "./CustomLibs/inc\\defines_for_proj.h" 1
+# 4 "CustomLibs/src/DMA_for_proj.c" 2
+# 1 "./CustomLibs/inc\\DMA_for_proj.h" 1
+
+
+
+extern DMA_CtrlDataInitTypeDef sDMA_PriCtrlData_ADC1;
+extern DMA_CtrlDataInitTypeDef sDMA_AltCtrlData_ADC1;
+void SetupDMA();
 # 5 "CustomLibs/src/DMA_for_proj.c" 2
 
 

@@ -4670,6 +4670,8 @@ __attribute__((__nothrow__)) long double truncl(long double );
 
 
 
+extern DMA_CtrlDataInitTypeDef sDMA_PriCtrlData_ADC1;
+extern DMA_CtrlDataInitTypeDef sDMA_AltCtrlData_ADC1;
 void SetupDMA();
 # 29 "main.c" 2
 # 1 "./CustomLibs/inc\\DAC_for_proj.h" 1
@@ -4719,14 +4721,6 @@ extern char RecBuf[128];
 
 uint16_t ADC1_array_m[128];
 uint16_t ADC1_array_a[128];
-
-
-extern DMA_ChannelInitTypeDef sDMA_ADC1;
-extern DMA_ChannelInitTypeDef sDMA_TIM2;
-extern DMA_CtrlDataInitTypeDef sDMA_PriCtrlData_ADC1;
-extern DMA_CtrlDataInitTypeDef sDMA_AltCtrlData_ADC1;
-extern DMA_CtrlDataInitTypeDef sDMA_PriCtrlData_TIM2;
-extern DMA_CtrlDataInitTypeDef sDMA_AltCtrlData_TIM2;
 
 
 

@@ -43,14 +43,6 @@ extern char RecBuf[BUFFER_LENGTH];
 uint16_t ADC1_array_m[NUM_OF_MES];			// Массив измерений АЦП для заполнения сновной структурой DMA
 uint16_t ADC1_array_a[NUM_OF_MES];			// Массив измерений АЦП для заполнения альтернативной структурой DMA
 
-// Структуры для DMA
-extern DMA_ChannelInitTypeDef sDMA_ADC1;
-extern DMA_ChannelInitTypeDef sDMA_TIM2;
-extern DMA_CtrlDataInitTypeDef sDMA_PriCtrlData_ADC1;				// Основная структура канала для ADC1
-extern DMA_CtrlDataInitTypeDef sDMA_AltCtrlData_ADC1;				// Альтернативная структура канала для ADC1
-extern DMA_CtrlDataInitTypeDef sDMA_PriCtrlData_TIM2;
-extern DMA_CtrlDataInitTypeDef sDMA_AltCtrlData_TIM2;
-
 /* ---------------------------------------------------------------------------*/
 
 int main(void) {

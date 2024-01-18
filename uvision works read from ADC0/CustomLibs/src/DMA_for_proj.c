@@ -1,7 +1,7 @@
-#include "DMA_for_proj.h"
 #include "MDR32F9Qx_dma.h"
 #include "MDR32F9Qx_rst_clk.h"
 #include "defines_for_proj.h"
+#include "DMA_for_proj.h"
 
 // Внешние переменные
 extern uint16_t DAC_table[];
