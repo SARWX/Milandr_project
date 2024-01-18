@@ -1,7 +1,7 @@
 # 1 "CustomLibs/src/ADC_for_proj.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 379 "<built-in>" 3
+# 383 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "CustomLibs/src/ADC_for_proj.c" 2
@@ -2002,7 +2002,7 @@ void SetupADC()
     sADCx.ADC_Channels = ((((uint32_t)0x1) << ADC_CH_ADC0 ) | (((uint32_t)0x1) << ADC_CH_ADC1 ));
     sADCx.ADC_VRefSource = ADC_VREF_SOURCE_INTERNAL;
     sADCx.ADC_IntVRefSource = ADC_INT_VREF_SOURCE_INEXACT;
-    sADCx.ADC_Prescaler = ADC_CLK_div_32;
+    sADCx.ADC_Prescaler = ADC_CLK_div_16;
  sADCx.ADC_DelayGo = 0x2;
     ADC1_Init (&sADCx);
 

@@ -1,7 +1,7 @@
 # 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 379 "<built-in>" 3
+# 383 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "main.c" 2
@@ -4715,8 +4715,8 @@ void execute_command(char *command);
 # 37 "main.c" 2
 
 int command_recived = 0;
-static char Buffer[128];
-char RcBuffer[128];
+static char Buffer[1280];
+char RcBuffer[1280];
 extern char RecBuf[];
 
 uint16_t ADC1_array_m[128];
@@ -4750,7 +4750,7 @@ int main(void) {
 
    command_recived = 0;
    execute_command(RecBuf);
-   for(int i = 0; i < 128; i++) {
+   for(int i = 0; i < 1280; i++) {
     Buffer[i] = 0;
    }
    ADC1_Cmd (ENABLE);

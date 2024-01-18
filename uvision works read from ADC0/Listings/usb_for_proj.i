@@ -1,7 +1,7 @@
 # 1 "CustomLibs/src/USB_for_proj.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
-# 379 "<built-in>" 3
+# 383 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "CustomLibs/src/USB_for_proj.c" 2
@@ -2496,14 +2496,14 @@ SSP_InitTypeDef sSSP;
 PORT_InitTypeDef PORT_InitStructure;
 
 extern uint8_t *Buffer;
-char RecBuf[128];
-static uint8_t DoubleBuf[128 * 2];
+char RecBuf[1280];
+static uint8_t DoubleBuf[1280 * 2];
 
 extern int command_recived;
 
 char *start;
 char *end;
-char tokens[5][128 * 2];
+char tokens[5][1280 * 2];
 char tempString[100];
 
 
@@ -2543,7 +2543,7 @@ void VCom_Configuration(void)
 
 USB_Result USB_CDC_RecieveData(uint8_t *Buffer, uint32_t Length)
 {
- memcpy(RecBuf, Buffer, 128);
+ memcpy(RecBuf, Buffer, 1280);
 
 
 

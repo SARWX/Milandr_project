@@ -1,5 +1,5 @@
 /* Макроподстановки --------------------------------------------------------------*/
-#define BUFFER_LENGTH 128
+#define BUFFER_LENGTH 1280	// 128
 #define timeout 10
 #define LED_Pin PORT_Pin_2
 #define LED_Port MDR_PORTC
