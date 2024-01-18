@@ -4715,8 +4715,8 @@ void execute_command(char *command);
 # 37 "main.c" 2
 
 int command_recived = 0;
-static char Buffer[1280];
-char RcBuffer[1280];
+static char Buffer[128];
+char RcBuffer[128];
 extern char RecBuf[];
 
 uint16_t ADC1_array_m[128];
@@ -4750,7 +4750,7 @@ int main(void) {
 
    command_recived = 0;
    execute_command(RecBuf);
-   for(int i = 0; i < 1280; i++) {
+   for(int i = 0; i < 128; i++) {
     Buffer[i] = 0;
    }
    ADC1_Cmd (ENABLE);
@@ -4759,21 +4759,12 @@ int main(void) {
   while (DMA_GetFlagStatus(DMA_Channel_ADC1, DMA_FLAG_CHNL_ALT) == 0)
    ;
   DMA_CtrlInit(DMA_Channel_ADC1, DMA_CTRL_DATA_PRIMARY, &sDMA_PriCtrlData_ADC1);
-
-
-
-
   USB_CDC_SendData((uint8_t *)(ADC1_array_m), ((128) * 2 ));
 
 
   while (DMA_GetFlagStatus(DMA_Channel_ADC1, DMA_FLAG_CHNL_ALT) != 0)
    ;
   DMA_CtrlInit(DMA_Channel_ADC1, DMA_CTRL_DATA_ALTERNATE, &sDMA_AltCtrlData_ADC1);
-
-
-
-
-
-  USB_CDC_SendData((uint8_t *)(ADC1_array_a), ((128) * 2));
+  USB_CDC_SendData((uint8_t *)(ADC1_array_a), ((128) * 2 ));
  }
 }

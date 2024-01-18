@@ -2496,14 +2496,14 @@ SSP_InitTypeDef sSSP;
 PORT_InitTypeDef PORT_InitStructure;
 
 extern uint8_t *Buffer;
-char RecBuf[1280];
-static uint8_t DoubleBuf[1280 * 2];
+char RecBuf[128];
+static uint8_t DoubleBuf[128 * 2];
 
 extern int command_recived;
 
 char *start;
 char *end;
-char tokens[5][1280 * 2];
+char tokens[5][128 * 2];
 char tempString[100];
 
 
@@ -2534,7 +2534,7 @@ void VCom_Configuration(void)
 {
 
 
-  LineCoding.dwDTERate = 1000000;
+  LineCoding.dwDTERate = 10000000;
   LineCoding.bCharFormat = 0;
   LineCoding.bParityType = 0;
   LineCoding.bDataBits = 8;
@@ -2543,7 +2543,7 @@ void VCom_Configuration(void)
 
 USB_Result USB_CDC_RecieveData(uint8_t *Buffer, uint32_t Length)
 {
- memcpy(RecBuf, Buffer, 1280);
+ memcpy(RecBuf, Buffer, 128);
 
 
 

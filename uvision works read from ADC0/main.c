@@ -80,21 +80,12 @@ int main(void) {
 		while (DMA_GetFlagStatus(DMA_Channel_ADC1, DMA_FLAG_CHNL_ALT) == 0)
 			;					// ждем, когда DMA перейдет на альтернативную структуру
 		DMA_CtrlInit(DMA_Channel_ADC1, DMA_CTRL_DATA_PRIMARY, &sDMA_PriCtrlData_ADC1);		// реинициализируем основную структуру
-		// 		while (check_status_cdc() != 1)
-		// {
-		// 	;
-		// }
 		USB_CDC_SendData((uint8_t *)(ADC1_array_m), ((NUM_OF_MES) * 2 ));					// отправка буфера основной структуры DMA по USB
 
 		// 2 стадия - заполнение буфера, с использованием альтернативной структуры DMA, параллельная передача буфера основной по USB
 		while (DMA_GetFlagStatus(DMA_Channel_ADC1, DMA_FLAG_CHNL_ALT) != 0)
 			;					// ждем, когда DMA перейдет на основную структуру
 		DMA_CtrlInit(DMA_Channel_ADC1, DMA_CTRL_DATA_ALTERNATE, &sDMA_AltCtrlData_ADC1);	// реинициализируем альтернативную структуру
-		// while (check_status_cdc() != 1)
-		// {
-		// 	;
-		// }
-		
-		USB_CDC_SendData((uint8_t *)(ADC1_array_a), ((NUM_OF_MES) * 2));					// отправка буфера альтернативной структуры DMA по USB
+		USB_CDC_SendData((uint8_t *)(ADC1_array_a), ((NUM_OF_MES) * 2 ));					// отправка буфера альтернативной структуры DMA по USB
 	}	
 }

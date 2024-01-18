@@ -42,7 +42,7 @@ void SetupADC()
     sADCx.ADC_Channels         = (ADC_CH_ADC0_MSK | ADC_CH_ADC1_MSK);	// Маска для каналов 0 и 1 (АЦП 1 будет оцифровывать их поочередно)
     sADCx.ADC_VRefSource       = ADC_VREF_SOURCE_INTERNAL;				// Опорное напряжение от внутреннего источника
     sADCx.ADC_IntVRefSource    = ADC_INT_VREF_SOURCE_INEXACT;			// Выбираем неточный источник опорного напряжения
-    sADCx.ADC_Prescaler        = ADC_CLK_div_16;						// Задаем скорость работы АЦП, ИМЕННО ЭТОЙ НАСТРОЙКОЙ ЗАДАЕТСЯ СКОРОСТЬ РАБОТЫ УСТРОЙСТВА
+    sADCx.ADC_Prescaler        = ADC_CLK_div_32;						// Задаем скорость работы АЦП, ИМЕННО ЭТОЙ НАСТРОЙКОЙ ЗАДАЕТСЯ СКОРОСТЬ РАБОТЫ УСТРОЙСТВА
 	sADCx.ADC_DelayGo          = 0x2;									// Отложенный запуск, необходиим для нормальной работы
     ADC1_Init (&sADCx);													// Применяем настройки к АЦП 1
     // Разрешаем прерывания от АЦП
