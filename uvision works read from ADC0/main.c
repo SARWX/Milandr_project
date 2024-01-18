@@ -38,7 +38,7 @@
 int command_recived = 0;
 static char Buffer[BUFFER_LENGTH];
 char RcBuffer[BUFFER_LENGTH];
-extern char RecBuf[BUFFER_LENGTH];
+extern char RecBuf[];						// Массив в котором записана переданная команда
 // массивы для АЦП
 uint16_t ADC1_array_m[NUM_OF_MES];			// Массив измерений АЦП для заполнения сновной структурой DMA
 uint16_t ADC1_array_a[NUM_OF_MES];			// Массив измерений АЦП для заполнения альтернативной структурой DMA
@@ -67,12 +67,14 @@ int main(void) {
 	/* Main loop */
 	while (1) {
 		if (command_recived == 1) {
+			ADC1_Cmd (DISABLE);
 			// strcpy(RcBuffer, Buffer);
 			command_recived = 0;
 			execute_command(RecBuf);
 			for(int i = 0; i < BUFFER_LENGTH; i++) {
 				Buffer[i] = 0;
 			}
+			ADC1_Cmd (ENABLE);
 		}
 		// 1 стадия - заполнение буфера, с использованием основной структуры DMA, параллельная передача буфера альтернативной по USB
 		while (DMA_GetFlagStatus(DMA_Channel_ADC1, DMA_FLAG_CHNL_ALT) == 0)

@@ -4707,7 +4707,7 @@ void VCom_Configuration(void);
 
 
 
-void execute_command();
+void execute_command(char *command);
 # 34 "main.c" 2
 
 
@@ -4717,7 +4717,7 @@ void execute_command();
 int command_recived = 0;
 static char Buffer[128];
 char RcBuffer[128];
-extern char RecBuf[128];
+extern char RecBuf[];
 
 uint16_t ADC1_array_m[128];
 uint16_t ADC1_array_a[128];
@@ -4746,12 +4746,14 @@ int main(void) {
 
  while (1) {
   if (command_recived == 1) {
+   ADC1_Cmd (DISABLE);
 
    command_recived = 0;
    execute_command(RecBuf);
    for(int i = 0; i < 128; i++) {
     Buffer[i] = 0;
    }
+   ADC1_Cmd (ENABLE);
   }
 
   while (DMA_GetFlagStatus(DMA_Channel_ADC1, DMA_FLAG_CHNL_ALT) == 0)
